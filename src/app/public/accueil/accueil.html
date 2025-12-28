@@ -28,19 +28,25 @@
         <div class="row text-center">
           <div class="col-md-4">
             <h3 class="text-primary fw-bold">
-              <om-number-ticker *ngIf="isBrowser" [countTo]="formations.length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+              @if (showTickers()) {
+                <om-number-ticker [countTo]="formations.length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+              }
             </h3>
             <p class="mb-0 text-muted">Formations Disponibles</p>
           </div>
           <div class="col-md-4">
             <h3 class="text-primary fw-bold">
-              <om-number-ticker *ngIf="isBrowser" [countTo]="formationdebutant().length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+              @if (showTickers()) {
+                <om-number-ticker [countTo]="formationdebutant().length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+              }
             </h3>
             <p class="mb-0 text-muted">Formations Débutant</p>
           </div>
           <div class="col-md-4">
             <h3 class="text-primary fw-bold">
-              <om-number-ticker *ngIf="isBrowser" [countTo]="formationavance().length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+              @if (showTickers()) {
+                <om-number-ticker [countTo]="formationavance().length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+              }
             </h3>
             <p class="mb-0 text-muted">Formations Avancé</p>
           </div>

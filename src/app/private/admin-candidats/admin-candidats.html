@@ -8,14 +8,18 @@
             <label class="form-label">Formation</label>
             <select class="form-select" [(ngModel)]="candidatForm.formationId" name="formationId" required>
               <option [ngValue]="null">Choisir une formation</option>
-              <option *ngFor="let formation of formations()" [ngValue]="formation.id">{{ formation.titre }}</option>
+              @for (formation of formations(); track formation.id) {
+              <option [ngValue]="formation.id">{{ formation.titre }}</option>
+              }
             </select>
           </div>
           <div class="mb-3">
             <label class="form-label">Session</label>
             <select class="form-select" [(ngModel)]="candidatForm.sessionId" name="sessionId" required>
               <option [ngValue]="null">Choisir une session</option>
-              <option *ngFor="let session of sessionsForFormation()" [ngValue]="session.id">{{ session.description }}</option>
+              @for (session of sessionsForFormation(); track session.id) {
+              <option [ngValue]="session.id">{{ session.description }}</option>
+              }
             </select>
           </div>
           <div class="row">
@@ -24,7 +28,7 @@
               <input class="form-control" [(ngModel)]="candidatForm.nom" name="nom" required />
             </div>
             <div class="col-6 mb-3">
-              <label class="form-label">Prénom</label>
+              <label class="form-label">PrAcnom</label>
               <input class="form-control" [(ngModel)]="candidatForm.prenom" name="prenom" required />
             </div>
           </div>
@@ -38,7 +42,7 @@
               <input class="form-control" type="number" [(ngModel)]="candidatForm.cin" name="cin" />
             </div>
             <div class="col-6 mb-3">
-              <label class="form-label">Téléphone</label>
+              <label class="form-label">TAclAcphone</label>
               <input class="form-control" type="number" [(ngModel)]="candidatForm.telephone" name="telephone" />
             </div>
           </div>
@@ -57,7 +61,8 @@
 
   <div class="col-lg-7">
     <div class="row g-3">
-      <div class="col-md-6" *ngFor="let candidat of candidats()">
+      @for (candidat of candidats(); track candidat.id) {
+      <div class="col-md-6">
         <div class="card shadow-sm h-100">
           <div class="card-body">
             <h6 class="fw-bold">{{ candidat.prenom }} {{ candidat.nom }}</h6>
@@ -72,6 +77,7 @@
           </div>
         </div>
       </div>
+      }
     </div>
   </div>
 </div>

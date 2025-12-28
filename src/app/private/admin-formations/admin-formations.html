@@ -14,13 +14,15 @@
           </div>
           <div class="row">
             <div class="col-6 mb-3">
-              <label class="form-label">Durée (jours)</label>
+              <label class="form-label">DurAce (jours)</label>
               <input class="form-control" type="number" [(ngModel)]="formationForm.duree" name="duree" />
             </div>
             <div class="col-6 mb-3">
               <label class="form-label">Niveau</label>
               <select class="form-select" [(ngModel)]="formationForm.niveau" name="niveau">
-                <option *ngFor="let niveau of niveaux" [ngValue]="niveau">{{ niveau }}</option>
+                @for (niveau of niveaux; track niveau) {
+                <option [ngValue]="niveau">{{ niveau }}</option>
+                }
               </select>
             </div>
           </div>
@@ -29,11 +31,11 @@
             <input class="form-control" [(ngModel)]="formationForm.image" name="image" placeholder="assets/images/monvisuel.png" />
           </div>
           <div class="mb-3">
-            <label class="form-label">Tags (séparés par des virgules)</label>
+            <label class="form-label">Tags (sAcparAcs par des virgules)</label>
             <input class="form-control" [(ngModel)]="formationForm.tags" name="tags" />
           </div>
           <div class="mb-3">
-            <label class="form-label">Catégories (séparées par des virgules)</label>
+            <label class="form-label">CatAcgories (sAcparAces par des virgules)</label>
             <input class="form-control" [(ngModel)]="formationForm.categorie" name="categorie" />
           </div>
           <div class="d-flex gap-2">
@@ -47,7 +49,8 @@
 
   <div class="col-lg-7">
     <div class="row g-3">
-      <div class="col-md-6" *ngFor="let formation of formations()">
+      @for (formation of formations(); track formation.id) {
+      <div class="col-md-6">
         <div class="card shadow-sm h-100">
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
@@ -55,8 +58,12 @@
               <span class="badge bg-primary text-uppercase">{{ formation.niveau }}</span>
             </div>
             <p class="text-muted small mb-2">{{ formation.description }}</p>
-            <p class="mb-1">Durée : {{ formation.duree }} jours</p>
-            <p class="mb-1">Catégories : <span class="badge text-dark me-1" *ngFor="let cat of formation.categorie">{{ cat }}</span></p>
+            <p class="mb-1">DurAce : {{ formation.duree }} jours</p>
+            <p class="mb-1">CatAcgories : 
+              @for (cat of formation.categorie; track cat) {
+                <span class="badge text-dark me-1">{{ cat }}</span>
+              }
+            </p>
             <p class="mb-2">Sessions : {{ formation.sessions.length }}</p>
             <div class="d-flex gap-2">
               <button class="btn btn-sm btn-outline-primary" type="button" (click)="editFormation(formation)">Modifier</button>
@@ -65,6 +72,7 @@
           </div>
         </div>
       </div>
+      }
     </div>
   </div>
 </div>

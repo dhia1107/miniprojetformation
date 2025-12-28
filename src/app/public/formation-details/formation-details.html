@@ -1,9 +1,10 @@
 <div class="container py-5">
 
-  <!-- Formation trouvée -->
-  <div *ngIf="formation" class="formation-detail">
+  <!-- Formation trouvAce -->
+  @if (formation) {
+  <div class="formation-detail">
     
-    <!-- En-tête avec bouton PDF -->
+    <!-- En-tA¦te avec bouton PDF -->
     <div class="row mb-4">
       <div class="col-md-8">
         <h1 class="display-5 fw-bold text-primary">{{ formation.titre }}</h1>
@@ -17,7 +18,8 @@
     </div>
 
     <!-- Image de la formation -->
-    <div class="row mb-4" *ngIf="formation.image">
+    @if (formation.image) {
+    <div class="row mb-4">
       <div class="col-12">
         <div class="text-center">
           <img [src]="formation.image" 
@@ -26,6 +28,7 @@
         </div>
       </div>
     </div>
+    }
 
     <!-- Informations -->
     <div class="row mb-4">
@@ -33,7 +36,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">📊 Informations</h5>
-            <p><strong>Durée :</strong> {{ formation.duree }} heures</p>
+            <p><strong>DurAce :</strong> {{ formation.duree }} heures</p>
             <p>
               <strong>Niveau :</strong>
               <span class="badge ms-2" [ngClass]="{
@@ -54,10 +57,12 @@
           <div class="card-body">
             <h5 class="card-title">🔖 Tags</h5>
             <div class="d-flex flex-wrap gap-1">
-              <span *ngFor="let tag of formation.tags" 
+              @for (tag of formation.tags; track tag) {
+              <span
                     class="badge bg-light text-dark">
                 {{ tag }}
               </span>
+              }
             </div>
           </div>
         </div>
@@ -73,13 +78,15 @@
           </div>
           <div class="card-body">
             <!-- Pas de sessions -->
-            <div *ngIf="formation.sessions.length === 0" class="text-center py-4">
+            @if (formation.sessions.length === 0) {
+            <div class="text-center py-4">
               <p class="text-muted">Aucune session disponible pour le moment.</p>
             </div>
+            }
 
             <!-- Liste des sessions -->
-            <div *ngFor="let session of formation.sessions" 
-                 class="session-item mb-3 p-3 border rounded">
+            @for (session of formation.sessions; track session.id) {
+            <div class="session-item mb-3 p-3 border rounded">
               
               <div class="row align-items-center">
                 <!-- Informations -->
@@ -94,17 +101,19 @@
                   
                   <p class="mb-1">
                     <strong>Formateur :</strong>
-                    <span *ngFor="let formateur of session.formateurs">
-                      {{ formateur.prenom }} {{ formateur.nom }}
-                    </span>
+                    @for (formateur of session.formateurs; track formateur.id) {
+                    {{ formateur.prenom }} {{ formateur.nom }}
+                    }
                   </p>
                   
                   <p class="mb-0">
                     <strong>Inscrits :</strong>
                     {{ session.candidats.length }} / {{ MAX_PLACES }} places
-                    <span *ngIf="session.candidats.length >= MAX_PLACES" class="text-danger ms-2">
+                    @if (session.candidats.length >= MAX_PLACES) {
+                    <span class="text-danger ms-2">
                       (COMPLET)
                     </span>
+                    }
                   </p>
                 </div>
 
@@ -120,16 +129,19 @@
                 </div>
               </div>
             </div>
+            }
           </div>
         </div>
       </div>
     </div>
   </div>
+  }
 </div>
 
 <!-- Modal d'inscription -->
-<div *ngIf="showInscriptionModal" class="modal-backdrop fade show"></div>
-<div *ngIf="showInscriptionModal" class="modal fade show d-block">
+@if (showInscriptionModal) {
+<div class="modal-backdrop fade show"></div>
+<div class="modal fade show d-block">
   <div class="modal-dialog">
     <div class="modal-content cyber-modal">
       <div class="modal-header">
@@ -152,10 +164,10 @@
         </div>
         
         <div class="mb-3">
-          <label class="form-label">Prénom *</label>
+          <label class="form-label">Prenom *</label>
           <input type="text" class="form-control" 
                  [(ngModel)]="candidatPrenom" 
-                 placeholder="Votre prénom">
+                 placeholder="Votre prAcnom">
         </div>
         
         <div class="mb-3">
@@ -180,3 +192,4 @@
     </div>
   </div>
 </div>
+}

@@ -1,5 +1,6 @@
 <div class="row g-4">
-  <div class="col-md-6 col-lg-3" *ngFor="let bloc of blocs">
+  @for (bloc of blocs; track bloc.titre) {
+  <div class="col-md-6 col-lg-3">
     <div class="card shadow-sm h-100 admin-card">
       <div class="card-body">
         <h5 class="card-title">{{ bloc.titre }}</h5>
@@ -7,4 +8,5 @@
       </div>
     </div>
   </div>
+  }
 </div>
