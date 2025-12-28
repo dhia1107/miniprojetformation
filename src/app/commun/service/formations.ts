@@ -15,8 +15,8 @@ export class Formations {
     'Data Science'
   ])
 
-  // Candidats hors sessions (ajoutAcs depuis le formulaire)
-  standaloneCandidats = signal<Candidats[]>([]);
+  
+  
 
   formateurs = signal<Formateurs[]>([
     {
@@ -46,6 +46,7 @@ formationsList = signal<Formation[]>([
     description: 'Apprenez les bases d\'Angular, un framework populaire pour construire des applications web modernes.',
     duree: 6,
     image: 'assets/images/angular.png',
+    pdf: 'assets/images/programme_introduction_angular.pdf',
     niveau: 'debutant',
     tags: ['Angular', 'Frontend', 'Web Development', 'TypeScript'],
     categorie: ['Développement Web', 'Développement Frontend'], // ✅ AJOUTÉ
@@ -87,6 +88,7 @@ formationsList = signal<Formation[]>([
     description: 'Découvrez comment créer des applications backend robustes avec Node.js et Express.js.',
     duree: 8,
     image: 'assets/images/nodejs.png',
+    pdf: 'assets/images/programme_d_veloppement_backend_avec_node_js.pdf',
     niveau: 'avance',
     tags: ['Node.js', 'Backend', 'API', 'Express', 'MongoDB'],
     categorie: ['Développement Web', 'Développement Backend'], 
@@ -138,6 +140,7 @@ formationsList = signal<Formation[]>([
     description: 'Développement d\'applications backend avec Java Spring Boot, sécurité et microservices.',
     duree: 10,
     image: 'assets/images/spring.png',
+    pdf: 'assets/images/programme_java_spring_boot_formation_complete.pdf',
     niveau: 'intermediaire',
     tags: ['Java', 'Spring Boot', 'Backend', 'REST API', 'Microservices'],
     categorie: ['Développement Backend', 'Java'], 
@@ -208,6 +211,7 @@ formationsList = signal<Formation[]>([
     description: 'Maîtrisez React.js, la librairie JavaScript la plus populaire pour le développement frontend.',
     duree: 7,
     image: 'assets/images/react.png',
+    pdf: 'assets/images/programme_react_js_de_z_ro_expert.pdf',
     niveau: 'intermediaire',
     tags: ['React', 'JavaScript', 'Frontend', 'Hooks', 'Redux'],
     categorie: ['Développement Frontend', 'JavaScript'], 
@@ -260,6 +264,7 @@ formationsList = signal<Formation[]>([
     description: 'Apprenez Python et ses bibliothèques pour l\'analyse de données et le machine learning.',
     duree: 10,
     image: 'assets/images/python.png',
+    pdf: 'assets/images/programme_python_pour_la_data_science.pdf',
     niveau: 'intermediaire',
     tags: ['Python', 'Data Science', 'Pandas', 'NumPy', 'Machine Learning'],
     categorie: ['Data Science', 'Python'], 
@@ -284,6 +289,7 @@ formationsList = signal<Formation[]>([
     description: 'Introduction aux services cloud AWS et préparation à la certification AWS.',
     duree: 12,
     image: 'assets/images/aws.png',
+    pdf: 'assets/images/programme_aws_cloud_practitioner.pdf',
     niveau: 'avance',
     tags: ['AWS', 'Cloud', 'DevOps', 'Infrastructure', 'Certification'],
     categorie: ['Réseaux et Sécurité', 'Cloud'],
@@ -307,10 +313,6 @@ formationsList = signal<Formation[]>([
   
   getFormateurs() {
     return this.formateurs.asReadonly(); 
-  }
-
-  getStandaloneCandidats() {
-    return this.standaloneCandidats.asReadonly();
   }
 
    getFormationById(id: number){

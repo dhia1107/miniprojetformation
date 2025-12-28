@@ -14,7 +14,7 @@
           </div>
           <div class="row">
             <div class="col-6 mb-3">
-              <label class="form-label">DurAce (jours)</label>
+              <label class="form-label">Duree (jours)</label>
               <input class="form-control" type="number" [(ngModel)]="formationForm.duree" name="duree" />
             </div>
             <div class="col-6 mb-3">
@@ -31,11 +31,11 @@
             <input class="form-control" [(ngModel)]="formationForm.image" name="image" placeholder="assets/images/monvisuel.png" />
           </div>
           <div class="mb-3">
-            <label class="form-label">Tags (sAcparAcs par des virgules)</label>
+            <label class="form-label">Tags (separes par des virgules)</label>
             <input class="form-control" [(ngModel)]="formationForm.tags" name="tags" />
           </div>
           <div class="mb-3">
-            <label class="form-label">CatAcgories (sAcparAces par des virgules)</label>
+            <label class="form-label">Categories (separees par des virgules)</label>
             <input class="form-control" [(ngModel)]="formationForm.categorie" name="categorie" />
           </div>
           <div class="d-flex gap-2">
@@ -58,8 +58,8 @@
               <span class="badge bg-primary text-uppercase">{{ formation.niveau }}</span>
             </div>
             <p class="text-muted small mb-2">{{ formation.description }}</p>
-            <p class="mb-1">DurAce : {{ formation.duree }} jours</p>
-            <p class="mb-1">CatAcgories : 
+            <p class="mb-1">Duree : {{ formation.duree }} jours</p>
+            <p class="mb-1">Categories : 
               @for (cat of formation.categorie; track cat) {
                 <span class="badge text-dark me-1">{{ cat }}</span>
               }

@@ -97,10 +97,6 @@ export class FormationDetails implements OnInit {
     return !!session && session.candidats.length >= this.MAX_PLACES;
   }
 
-  telechargerProgramme() {
-    alert('Téléchargement du programme PDF...');
-  }
-
   closeInscription() {
     this.showInscriptionModal = false;
     this.selectedSession = null;
