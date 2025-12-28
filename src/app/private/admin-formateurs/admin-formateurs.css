@@ -1,0 +1,12 @@
+.card-title {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.badge {
+  border-radius: 12px;
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

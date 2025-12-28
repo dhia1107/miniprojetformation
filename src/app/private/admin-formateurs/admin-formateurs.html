@@ -1,0 +1,61 @@
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ formateurForm.id ? 'Modifier le formateur' : 'Ajouter un formateur' }}</h5>
+        <form (ngSubmit)="saveFormateur()">
+          <div class="mb-3">
+            <label class="form-label">Nom</label>
+            <input class="form-control" [(ngModel)]="formateurForm.nom" name="nom" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Prénom</label>
+            <input class="form-control" [(ngModel)]="formateurForm.prenom" name="prenom" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" [(ngModel)]="formateurForm.email" name="email" type="email" required />
+          </div>
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label">Téléphone</label>
+              <input class="form-control" [(ngModel)]="formateurForm.telephone" name="telephone" type="number" />
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label">CIN</label>
+              <input class="form-control" [(ngModel)]="formateurForm.cin" name="cin" type="number" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Spécialités (séparées par des virgules)</label>
+            <input class="form-control" [(ngModel)]="formateurForm.specialites" name="specialites" />
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="submit">{{ formateurForm.id ? 'Enregistrer' : 'Ajouter' }}</button>
+            <button class="btn btn-outline-secondary" type="button" (click)="resetForm()">Annuler</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div class="row g-3">
+      <div class="col-md-6" *ngFor="let formateur of formateurs()">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h6 class="fw-bold">{{ formateur.prenom }} {{ formateur.nom }}</h6>
+            <p class="mb-1 text-muted">{{ formateur.email }}</p>
+            <p class="mb-1">CIN : {{ formateur.cin }}</p>
+            <p class="mb-2">Spécialités : <span class="badge text-dark me-1" *ngFor="let spec of formateur.specialites">{{ spec }}</span></p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-primary" type="button" (click)="editFormateur(formateur)">Modifier</button>
+              <button class="btn btn-sm btn-outline-danger" type="button" (click)="deleteFormateur(formateur.id)">Supprimer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

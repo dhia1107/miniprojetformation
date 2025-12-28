@@ -1,0 +1,15 @@
+.admin-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.card-text {
+  color: var(--muted);
+}

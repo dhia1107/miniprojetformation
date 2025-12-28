@@ -1,6 +1,7 @@
 /* Section Hero (Bannière principale) */
 .bg-primary {
-  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%) !important;
+  background: radial-gradient(120% 80% at 20% 20%, rgba(255, 0, 200, 0.22), transparent),
+              linear-gradient(135deg, rgba(11, 10, 31, 0.95), rgba(22, 20, 51, 0.88)) !important;
   position: relative;
   overflow: hidden;
 }
@@ -32,7 +33,7 @@
 /* Titre principal */
 .display-4 {
   font-weight: 800 !important;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 4px rgba(11, 10, 31, 0.4);
   margin-bottom: 1rem !important;
 }
 
@@ -41,14 +42,14 @@
   max-height: 300px;
   object-fit: cover;
   border-radius: 15px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(11, 10, 31, 0.35);
   transition: all 0.3s ease;
   border: 3px solid rgba(255, 255, 255, 0.1);
 }
 
 .img-fluid.rounded:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 40px rgba(22, 20, 51, 0.35);
   border-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -64,14 +65,14 @@
 
 /* Bouton Découvrir */
 .btn-light {
-  background: white;
-  color: #0d6efd !important;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0b0a1f !important;
   border: none;
   padding: 0.8rem 2rem;
   font-weight: 600;
   border-radius: 50px;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(11, 10, 31, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -90,7 +91,7 @@
 .btn-light:hover {
   background: #f8f9fa;
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(22, 20, 51, 0.3);
 }
 
 .btn-light:hover::before {
@@ -103,7 +104,7 @@
 
 /* Section Statistiques */
 .stats-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   position: relative;
 }
 
@@ -114,7 +115,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #0d6efd, #6f42c1, #0d6efd);
+  background: linear-gradient(90deg, #ff00c8, #7b5bff, #00fff0);
   background-size: 200% 100%;
   animation: gradientMove 3s ease infinite;
 }
@@ -131,7 +132,7 @@
   font-weight: 800;
   position: relative;
   display: inline-block;
-  background: linear-gradient(135deg, #0d6efd, #20c997);
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -143,13 +144,13 @@
   top: -10px;
   right: -20px;
   font-size: 1.5rem;
-  color: #0d6efd;
+  color: var(--primary);
 }
 
 /* Texte sous les statistiques */
 .stats-section p {
   font-size: 1.1rem;
-  color: #6c757d;
+  color: var(--muted);
   font-weight: 500;
   margin-top: 0.5rem;
 }
@@ -233,8 +234,8 @@
 
 .stats-section .col-md-4:hover {
   transform: translateY(-10px);
-  background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 10px 30px rgba(102, 217, 232, 0.15);
 }
 
 /* Amélioration de l'espacement */

@@ -1,0 +1,21 @@
+<section class="admin-hero text-center text-white py-4">
+  <div class="container">
+    <h1 class="display-6 fw-bold">Espace d'administration</h1>
+    <p class="lead mb-0">Gérez simplement les données déjà utilisées dans la partie publique.</p>
+    <button class="btn btn-light mt-3" routerLink="">retour</button>
+  </div>
+</section>
+
+<div class="container my-4">
+  <div class="btn-group admin-nav flex-wrap w-100" role="group">
+    <a class="btn btn-outline-light text-dark" routerLink="/admin-space" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+    <a class="btn btn-outline-light text-dark" routerLink="candidats" routerLinkActive="active">Candidats</a>
+    <a class="btn btn-outline-light text-dark" routerLink="formateurs" routerLinkActive="active">Formateurs</a>
+    <a class="btn btn-outline-light text-dark" routerLink="formations" routerLinkActive="active">Formations</a>
+    <a class="btn btn-outline-light text-dark" routerLink="sessions" routerLinkActive="active">Sessions</a>
+  </div>
+
+  <div class="mt-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

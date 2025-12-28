@@ -1,0 +1,10 @@
+<div class="row g-4">
+  <div class="col-md-6 col-lg-3" *ngFor="let bloc of blocs">
+    <div class="card shadow-sm h-100 admin-card">
+      <div class="card-body">
+        <h5 class="card-title">{{ bloc.titre }}</h5>
+        <p class="card-text">{{ bloc.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

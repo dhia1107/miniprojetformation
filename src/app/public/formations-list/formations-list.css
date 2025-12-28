@@ -14,7 +14,7 @@ img{
 
 
 .lead {
-  color: #7f8c8d;
+  color: var(--muted);
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -33,45 +33,49 @@ img{
 }
 
 .form-control {
-  border: 2px solid #e0e0e0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 0.75rem 1rem;
   font-size: 1rem;
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
 }
 
 .form-control:focus {
-  border-color: #3498db;
-  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.25rem rgba(102, 217, 232, 0.2);
 }
 
 .btn-outline-secondary {
-  border: 2px solid #e0e0e0;
-  color: #7f8c8d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--muted);
   padding: 0.75rem 1.5rem;
   transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .btn-outline-secondary:hover {
-  background-color: #3498db;
-  color: white;
-  border-color: #3498db;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: #0b0a1f;
+  border-color: transparent;
+  box-shadow: 0 8px 15px rgba(255, 0, 200, 0.25);
 }
 
 /* 🃏 CARTES DE FORMATION */
 .formation-card {
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
   position: relative;
 }
 
 /* Effet au survol */
 .formation-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 20px 40px rgba(255, 0, 200, 0.25);
 }
 
 /* Image de la formation */
@@ -98,21 +102,21 @@ img{
 }
 
 .bg-success {
-  background: linear-gradient(90deg, #2ecc71, #27ae60) !important;
+  background: linear-gradient(90deg, #ff00c8, #7b5bff) !important;
 }
 
 .bg-warning {
-  background: linear-gradient(90deg, #f39c12, #e67e22) !important;
-  color: white !important;
+  background: linear-gradient(90deg, #00fff0, #7b5bff) !important;
+  color: #0b0a1f !important;
 }
 
 .bg-danger {
-  background: linear-gradient(90deg, #e74c3c, #c0392b) !important;
+  background: linear-gradient(90deg, #ff00c8, #00fff0) !important;
 }
 
 /* 📌 TITRE DE LA FORMATION */
 .card-title {
-  color: #2c3e50;
+  color: var(--text);
   font-weight: 700;
   font-size: 1.4rem;
   margin: 1rem 0;
@@ -121,13 +125,13 @@ img{
 }
 
 a.text-decoration-none:hover .card-title {
-  color: #3498db;
+  color: var(--primary);
   text-decoration: none;
 }
 
 /* 📝 DESCRIPTION */
 .card-text {
-  color: #5d6d7e;
+  color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -138,9 +142,9 @@ a.text-decoration-none:hover .card-title {
 
 /* 🏷️ TAGS */
 .formation-card .badge.bg-light {
-  background-color: #ecf0f1 !important;
-  color: #34495e !important;
-  border: 1px solid #bdc3c7;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  color: var(--text) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   margin-right: 0.3rem;
   margin-bottom: 0.3rem;
   font-size: 0.7rem;
@@ -152,7 +156,7 @@ a.text-decoration-none:hover .card-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #7f8c8d;
+  color: var(--muted);
 }
 
 /* 👨‍🏫 FORMATEURS */
@@ -160,7 +164,7 @@ a.text-decoration-none:hover .card-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #5d6d7e;
+  color: var(--muted);
   font-style: italic;
 }
 
@@ -171,7 +175,7 @@ a.text-decoration-none:hover .card-title {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #3498db, #2980b9);
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
   border: none;
   padding: 0.75rem;
   font-weight: 600;
@@ -182,21 +186,21 @@ a.text-decoration-none:hover .card-title {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(90deg, #2980b9, #1c5a80);
+  background: linear-gradient(135deg, var(--primary-strong), var(--primary));
   transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 8px 15px rgba(255, 0, 200, 0.3);
 }
 
 /* 🎨 MESSAGE AUCUNE FORMATION */
 .text-center.py-5 h2 {
-  color: #95a5a6;
+  color: var(--muted);
   font-weight: 300;
   margin-bottom: 1.5rem;
 }
 
 .btn-outline-primary {
-  border: 2px solid #3498db;
-  color: #3498db;
+  border: 2px solid rgba(102, 217, 232, 0.5);
+  color: var(--primary);
   padding: 0.75rem 2rem;
   border-radius: 25px;
   font-weight: 600;
@@ -204,10 +208,10 @@ a.text-decoration-none:hover .card-title {
 }
 
 .btn-outline-primary:hover {
-  background-color: #3498db;
-  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: #0b0a1f;
   transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 8px 15px rgba(255, 0, 200, 0.3);
 }
 
 /* 📱 RESPONSIVE DESIGN */
@@ -262,8 +266,7 @@ a.text-decoration-none:hover .card-title {
   right: -2px;
   bottom: -2px;
   background: linear-gradient(45deg, 
-    #ff0000, #ff7300, #fffb00, #48ff00, 
-    #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    #ff00c8, #7b5bff, #00fff0, #ff00c8);
   background-size: 400% 400%;
   border-radius: 17px;
   z-index: -1;
@@ -290,7 +293,7 @@ a.text-decoration-none:hover .card-title {
 
 /* 🎭 CORPS DE LA CARTE (pour l'effet électrique) */
 .formation-card .card-body {
-  background: white;
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 13px;
   margin: 2px;
   position: relative;
@@ -298,7 +301,7 @@ a.text-decoration-none:hover .card-title {
 }
 
 .formation-card .card-footer {
-  background: white;
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 0 0 13px 13px;
   position: relative;
   z-index: 1;

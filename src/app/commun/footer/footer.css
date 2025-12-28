@@ -1,13 +1,14 @@
 /* 🎯 FOOTER GLASSMORPHISM */
 footer {
-  background: rgba(13, 110, 253, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: white;
+  background: linear-gradient(135deg, rgba(22, 20, 51, 0.95), rgba(11, 10, 31, 0.9));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text);
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  margin-top: 0; /* override Bootstrap .mt-5 */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0;
   width: 100%;
+  box-shadow: 0 -12px 35px rgba(11, 10, 31, 0.45);
 }
 
 
@@ -20,23 +21,9 @@ footer .container {
 /* Texte avec effet néon */
 footer p {
   font-size: 0.95rem;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
-               0 0 10px rgba(255, 255, 255, 0.3);
-  animation: textGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes textGlow {
-  from {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
-                 0 0 10px rgba(255, 255, 255, 0.3);
-  }
-  to {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-                 0 0 20px rgba(255, 255, 255, 0.5),
-                 0 0 30px rgba(255, 255, 255, 0.3);
-  }
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--muted);
 }
 
 /* Bulles flottantes */
@@ -47,19 +34,9 @@ footer::before {
   height: 100%;
   top: 0;
   left: 0;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
-    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 3px, transparent 3px);
-  background-size: 100px 100px, 150px 150px, 200px 200px;
-  animation: floatBubbles 20s linear infinite;
-}
-
-@keyframes floatBubbles {
-  0% {
-    background-position: 0 0, 0 0, 0 0;
-  }
-  100% {
-    background-position: 100px 100px, 150px 150px, 200px 200px;
-  }
+  background-image:
+    radial-gradient(circle at 15% 80%, rgba(255, 0, 200, 0.18) 10%, transparent 25%),
+    radial-gradient(circle at 80% 20%, rgba(0, 255, 240, 0.2) 12%, transparent 25%);
+  filter: blur(20px);
+  opacity: 0.6;
 }

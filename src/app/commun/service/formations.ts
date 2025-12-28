@@ -16,9 +16,9 @@ export class Formations {
   ])
 
   // Candidats hors sessions (ajoutAcs depuis le formulaire)
-  private standaloneCandidats = signal<any[]>([]);
+  standaloneCandidats = signal<Candidats[]>([]);
 
-  private formateur = signal<Formateurs[]>([
+  formateurs = signal<Formateurs[]>([
     {
       id: 1,
       nom: 'battikh',
@@ -52,7 +52,7 @@ formationsList = signal<Formation[]>([
     sessions: [
       {
         id: 1,
-        formateurs: [this.formateur()[0]],
+        formateurs: [this.formateurs()[0]],
         candidats: [
           { id: 101, nom: 'Ben Salah', prenom: 'Ahmed', email: 'ahmed@email.com', cin: 10000101, mdp: 'pass123' },
           { id: 102, nom: 'Mansour', prenom: 'Sara', email: 'sara@email.com', cin: 10000102, mdp: 'pass123' },
@@ -66,7 +66,7 @@ formationsList = signal<Formation[]>([
       },
       {
         id: 2,
-        formateurs: [this.formateur()[0]],
+        formateurs: [this.formateurs()[0]],
         candidats: [
           { id: 105, nom: 'Bouzid', prenom: 'Youssef', email: 'youssef@email.com', cin: 10000105, mdp: 'pass123' },
           { id: 106, nom: 'Ben Ali', prenom: 'Fatma', email: 'fatma@email.com', cin: 10000106, mdp: 'pass123' },
@@ -93,7 +93,7 @@ formationsList = signal<Formation[]>([
     sessions: [
       {
         id: 3,
-        formateurs: [this.formateur()[1]],
+        formateurs: [this.formateurs()[1]],
         candidats: [
           { id: 201, nom: 'Karray', prenom: 'Ali', email: 'ali@email.com', cin: 10000201, mdp: 'pass123' },
           { id: 202, nom: 'Saidi', prenom: 'Amina', email: 'amina@email.com', cin: 10000202, mdp: 'pass123' },
@@ -113,7 +113,7 @@ formationsList = signal<Formation[]>([
       },
       {
         id: 4,
-        formateurs: [this.formateur()[1]],
+        formateurs: [this.formateurs()[1]],
         candidats: [
           { id: 211, nom: 'Guesmi', prenom: 'Mohamed', email: 'mohamed@email.com', cin: 10000211, mdp: 'pass123' },
           { id: 212, nom: 'Ben Youssef', prenom: 'Hana', email: 'hana@email.com', cin: 10000212, mdp: 'pass123' },
@@ -144,7 +144,7 @@ formationsList = signal<Formation[]>([
     sessions: [
       {
         id: 5,
-        formateurs: [this.formateur()[0], this.formateur()[1]],
+        formateurs: [this.formateurs()[0], this.formateurs()[1]],
         candidats: [
           { id: 301, nom: 'Ben Ali', prenom: 'Mohamed', email: 'mohamed.benali@email.com', cin: 10000001, mdp: 'pass123' },
           { id: 302, nom: 'Trabelsi', prenom: 'Fatma', email: 'fatma.trabelsi@email.com', cin: 10000002, mdp: 'pass123' },
@@ -169,7 +169,7 @@ formationsList = signal<Formation[]>([
       },
       {
         id: 6,
-        formateurs: [this.formateur()[0]],
+        formateurs: [this.formateurs()[0]],
         candidats: [
           { id: 316, nom: 'Laroussi', prenom: 'Sami', email: 'sami.laroussi@email.com', cin: 10000016, mdp: 'pass123' },
           { id: 317, nom: 'Ben Ahmed', prenom: 'Rania', email: 'rania.benahmed@email.com', cin: 10000017, mdp: 'pass123' },
@@ -193,7 +193,7 @@ formationsList = signal<Formation[]>([
       },
       {
         id: 7,
-        formateurs: [this.formateur()[1]],
+        formateurs: [this.formateurs()[1]],
         candidats: [],
         dateDebut: new Date('2024-05-01'),
         dateFin: new Date('2024-05-15'),
@@ -214,7 +214,7 @@ formationsList = signal<Formation[]>([
     sessions: [
       {
         id: 8,
-        formateurs: [this.formateur()[0]],
+        formateurs: [this.formateurs()[0]],
         candidats: [
           { id: 401, nom: 'Dupont', prenom: 'Jean', email: 'jean@email.com', cin: 10000401, mdp: 'pass123' },
           { id: 402, nom: 'Martin', prenom: 'Marie', email: 'marie@email.com', cin: 10000402, mdp: 'pass123' },
@@ -229,7 +229,7 @@ formationsList = signal<Formation[]>([
       },
       {
         id: 9,
-        formateurs: [this.formateur()[0]],
+        formateurs: [this.formateurs()[0]],
         candidats: [
           { id: 406, nom: 'Petit', prenom: 'Sophie', email: 'sophie@email.com', cin: 10000406, mdp: 'pass123' },
           { id: 407, nom: 'Durand', prenom: 'Paul', email: 'paul@email.com', cin: 10000407, mdp: 'pass123' },
@@ -266,7 +266,7 @@ formationsList = signal<Formation[]>([
     sessions: [
       {
         id: 10,
-        formateurs: [this.formateur()[0], this.formateur()[1]],
+        formateurs: [this.formateurs()[0], this.formateurs()[1]],
         candidats: [
           { id: 501, nom: 'Data', prenom: 'Analyst', email: 'analyst@email.com', cin: 10000501, mdp: 'pass123' },
           { id: 502, nom: 'Science', prenom: 'Data', email: 'data@email.com', cin: 10000502, mdp: 'pass123' }
@@ -290,7 +290,7 @@ formationsList = signal<Formation[]>([
     sessions: [
       {
         id: 11,
-        formateurs: [this.formateur()[0]],
+        formateurs: [this.formateurs()[0]],
         candidats: [
           { id: 601, nom: 'Cloud', prenom: 'Expert', email: 'cloud@email.com', cin: 10000601, mdp: 'pass123' },
           { id: 602, nom: 'AWS', prenom: 'Master', email: 'aws@email.com', cin: 10000602, mdp: 'pass123' },
@@ -299,14 +299,18 @@ formationsList = signal<Formation[]>([
         dateDebut: new Date('2024-07-01'),
         dateFin: new Date('2024-07-20'),
         description: 'Session certification AWS',
-        complet: true
+        complet: false
       }
     ]
   }
 ]);
   
-   getFormateurs() {
-    return this.formateur.asReadonly(); 
+  getFormateurs() {
+    return this.formateurs.asReadonly(); 
+  }
+
+  getStandaloneCandidats() {
+    return this.standaloneCandidats.asReadonly();
   }
 
    getFormationById(id: number){
@@ -325,5 +329,3 @@ formationsList = signal<Formation[]>([
 
 }
  
-
-

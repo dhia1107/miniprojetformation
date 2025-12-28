@@ -1,0 +1,30 @@
+.admin-hero {
+  background: radial-gradient(120% 80% at 20% 30%, rgba(255, 0, 200, 0.22), transparent),
+              linear-gradient(110deg, rgba(22, 20, 51, 0.95), rgba(11, 10, 31, 0.9));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.admin-nav .btn {
+  border-radius: 10px;
+  border-color: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+}
+
+.admin-nav .btn.active,
+.admin-nav .btn:hover {
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: #0b0a1f !important;
+  border-color: transparent;
+  box-shadow: 0 12px 24px rgba(255, 0, 200, 0.35);
+}
+
+@media (max-width: 768px) {
+  .admin-nav .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
