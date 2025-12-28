@@ -1,0 +1,305 @@
+img{
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    object-fit: fill;
+}
+/* 🌟 CONTAINER PRINCIPAL */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 🎯 TITRES */
+
+
+.lead {
+  color: #7f8c8d;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* 🔍 BARRE DE RECHERCHE */
+.input-group {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.input-group:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-control {
+  border: 2px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-outline-secondary {
+  border: 2px solid #e0e0e0;
+  color: #7f8c8d;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+/* 🃏 CARTES DE FORMATION */
+.formation-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+/* Effet au survol */
+.formation-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(52, 152, 219, 0.2);
+}
+
+/* Image de la formation */
+.formation-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.5s ease;
+}
+
+.formation-card:hover img {
+  transform: scale(1.05);
+}
+
+/* 🌈 BADGES DE NIVEAU */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bg-success {
+  background: linear-gradient(90deg, #2ecc71, #27ae60) !important;
+}
+
+.bg-warning {
+  background: linear-gradient(90deg, #f39c12, #e67e22) !important;
+  color: white !important;
+}
+
+.bg-danger {
+  background: linear-gradient(90deg, #e74c3c, #c0392b) !important;
+}
+
+/* 📌 TITRE DE LA FORMATION */
+.card-title {
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+a.text-decoration-none:hover .card-title {
+  color: #3498db;
+  text-decoration: none;
+}
+
+/* 📝 DESCRIPTION */
+.card-text {
+  color: #5d6d7e;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 🏷️ TAGS */
+.formation-card .badge.bg-light {
+  background-color: #ecf0f1 !important;
+  color: #34495e !important;
+  border: 1px solid #bdc3c7;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.7rem;
+  padding: 0.3rem 0.6rem;
+}
+
+/* 📅 SESSIONS DISPONIBLES */
+.mb-2 small {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7f8c8d;
+}
+
+/* 👨‍🏫 FORMATEURS */
+.mb-3 small.text-muted {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #5d6d7e;
+  font-style: italic;
+}
+
+/* 🔘 BOUTON "VOIR DÉTAILS" */
+.card-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  border: none;
+  padding: 0.75rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #2980b9, #1c5a80);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* 🎨 MESSAGE AUCUNE FORMATION */
+.text-center.py-5 h2 {
+  color: #95a5a6;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.btn-outline-primary {
+  border: 2px solid #3498db;
+  color: #3498db;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3498db;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .display-5 {
+    font-size: 2rem;
+  }
+  
+  .lead {
+    font-size: 1rem;
+  }
+  
+  .formation-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .row.g-4 {
+    --bs-gutter-y: 1.5rem;
+  }
+}
+
+/* ✨ ANIMATION POUR LE CHARGEMENT */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.col-md-6.col-lg-4 {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* 🎯 ORDRE D'APPEARITION POUR LES CARTES */
+.col-md-6.col-lg-4:nth-child(1) { animation-delay: 0.1s; }
+.col-md-6.col-lg-4:nth-child(2) { animation-delay: 0.2s; }
+.col-md-6.col-lg-4:nth-child(3) { animation-delay: 0.3s; }
+.col-md-6.col-lg-4:nth-child(4) { animation-delay: 0.4s; }
+.col-md-6.col-lg-4:nth-child(5) { animation-delay: 0.5s; }
+.col-md-6.col-lg-4:nth-child(6) { animation-delay: 0.6s; }
+
+/* 🎨 EFFET DE BORDURE ÉLECTRIQUE OPTIONNEL */
+.formation-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    #ff0000, #ff7300, #fffb00, #48ff00, 
+    #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  background-size: 400% 400%;
+  border-radius: 17px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: electric-border 3s linear infinite;
+}
+
+.formation-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes electric-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 🎭 CORPS DE LA CARTE (pour l'effet électrique) */
+.formation-card .card-body {
+  background: white;
+  border-radius: 13px;
+  margin: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.formation-card .card-footer {
+  background: white;
+  border-radius: 0 0 13px 13px;
+  position: relative;
+  z-index: 1;
+}

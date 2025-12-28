@@ -1,0 +1,40 @@
+<!-- Navbar Simple et Claire -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <!-- Logo et Nom -->
+    <a class="navbar-brand fw-bold" routerLink="/accueil">
+      <img src="assets/images/307958328_469439478557293_9096328262039659095_n.png" alt="">
+       ISET Formations
+    </a>
+
+    <!-- Bouton Menu Mobile -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleMenu()"
+      aria-controls="navbarMenu"
+      [attr.aria-expanded]="menuopened()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" [class.show]="menuopened()" id="navbarMenu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/accueil" routerLinkActive="active" (click)="closemenu()">
+            Accueil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/formations" routerLinkActive="active" (click)="closemenu()">
+            Formations
+          </a>
+        </li>
+      </ul>
+
+      <div class="navbar-nav">
+      </div>
+    </div>
+  </div>
+</nav>

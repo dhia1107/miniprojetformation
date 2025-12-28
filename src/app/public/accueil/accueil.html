@@ -1,0 +1,49 @@
+
+    <section class="bg-primary text-white py-5">
+          <div class="container text-center">
+            <h1 class="display-4 fw-bold">Bienvenue à ISET Formations</h1><br>
+            <div class="row">
+              <div class="col">
+                <img src="assets/images/iset.jpg" alt="ISET Rades Logo" class="img-fluid rounded mx-auto d-block float-start" />
+              </div>
+                <div class="col-md-8 text-start"> 
+                <p class="lead ">
+                Cette formation s’inscrit dans le cadre de la réalisation d’un projet de gestion des sessions de formation à l’ISET de Radès.
+                Elle a pour objectif de permettre aux apprenants de concevoir et développer une application complète permettant l’administration des formations, des formateurs, 
+                des candidats et des sessions de formation. Le projet met l’accent sur la structuration des données, la gestion des utilisateurs ainsi que la séparation entre un
+                  espace public destiné aux candidats et un espace privé réservé à l’administration. À travers ce travail, les apprenants développent des compétences pratiques en 
+                  analyse des besoins, conception et développement d’applications de gestion.
+                </p>
+                <button [routerLink]="['/formations']" class="btn btn-light btn-lg" >
+                  Découvrir {{ formations.length }} formations
+                </button>
+              </div>
+              <br><br>
+              </div>
+            </div>
+    </section>
+
+    <section class="stats-section py-4 bg-light">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h3 class="text-primary fw-bold">
+              <om-number-ticker *ngIf="isBrowser" [countTo]="formations.length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+            </h3>
+            <p class="mb-0 text-muted">Formations Disponibles</p>
+          </div>
+          <div class="col-md-4">
+            <h3 class="text-primary fw-bold">
+              <om-number-ticker *ngIf="isBrowser" [countTo]="formationdebutant().length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+            </h3>
+            <p class="mb-0 text-muted">Formations Débutant</p>
+          </div>
+          <div class="col-md-4">
+            <h3 class="text-primary fw-bold">
+              <om-number-ticker *ngIf="isBrowser" [countTo]="formationavance().length" [countDuration]="1500" styleClass="ticker-custom"></om-number-ticker>
+            </h3>
+            <p class="mb-0 text-muted">Formations Avancé</p>
+          </div>
+        </div>
+      </div>
+    </section>

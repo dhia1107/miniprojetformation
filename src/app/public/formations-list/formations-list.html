@@ -1,0 +1,136 @@
+<div class="container py-5">
+  <div class="row mb-4">
+    <div class="col-12">
+      <h1 class="display-5 fw-bold text-primary">📚 Nos Formations</h1>
+      <p class="lead">Découvrez toutes nos formations disponibles ({{ formations.length }})</p>
+    </div>
+  </div>
+
+  <!-- Filtres -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <!-- Barre de recherche -->
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Rechercher une formation..."
+          [value]="search()"
+          (input)="onSearch($any($event.target).value)"
+        >
+        <button class="btn btn-outline-secondary" type="button">
+          🔍
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <!-- Filtre par catégorie -->
+      <select 
+        class="form-select" 
+        [value]="selectedCategory()"
+        (change)="onCategorySelect($any($event.target).value)"
+      >
+        <option value="">Toutes les catégories</option>
+        <option 
+          *ngFor="let category of categories()" 
+          [value]="category"
+        >
+          {{ category }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Liste des formations -->
+   
+  <div class="row g-4">
+    
+    <div 
+      class="col-md-6 col-lg-4" 
+      *ngFor="let formation of filteredFormations()"
+    >
+      <!-- Carte Formation -->
+      <div class="card h-100 shadow-sm formation-card ">
+        <div class="card-body">
+          <div>
+            <img [src]="formation.image" />
+          </div>
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <span 
+              class="badge"
+              [ngClass]="{
+                'bg-success': formation.niveau === 'debutant',
+                'bg-warning': formation.niveau === 'intermediaire', 
+                'bg-danger': formation.niveau === 'avance'
+              }"
+            >
+              {{ formation.niveau }}
+            </span>
+            <small class="text-muted">{{ formation.duree }}h</small>
+          </div>
+          <a 
+            [routerLink]="['/formation',formation.id]"
+            class="text-decoration-none"
+          >
+          <h5 class="card-title">{{ formation.titre }}</h5>
+          </a>
+          
+          <p class="card-text text-muted">
+            {{ formation.description}}
+          </p>
+
+          <!-- Catégorie -->
+          <div class="mb-2">
+            <span class="badge bg-primary me-1 mb-1">
+              {{ formation.categorie }} 
+            </span>
+          </div>
+
+          <!-- Tags -->
+          <div class="mb-3">
+            <small class="text-muted">
+              🏷️ 
+              <span *ngFor="let tag of formation.tags; let last = last">
+                {{ tag }} 
+              </span>
+            </small>
+          </div>
+
+          <!-- Sessions disponibles -->
+          <div class="mb-2">
+            <small class="text-muted">
+              📅 {{ getSessionsDisponibles(formation) }} session(s) disponible(s)
+            </small>
+          </div>
+
+          <!-- Formateurs -->
+          <div class="mb-3">
+            <span *ngIf="formation.sessions && formation.sessions.length > 0">
+            <small class="text-muted">
+              👨‍🏫 
+              <span *ngFor="let session of formation.sessions; let last = last">
+                {{ session.formateurs[0]?.prenom }} {{ session.formateurs[0]?.nom }}{{ !last ? ', ' : '' }}
+              </span>
+            </small>
+            </span>
+          </div>
+        </div>
+
+        <!-- Bouton Voir détails -->
+        <div class="card-footer bg-transparent">
+          <a 
+            [routerLink]="['/formation',formation.id]" 
+            class="btn btn-primary w-100"
+          >
+            Voir les détails
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message si aucune formation -->
+  <div *ngIf="filteredFormations().length === 0" class="text-center py-5">
+    <h2 class="text-muted">Aucune formation trouvée.</h2>
+  </div>
+</div>

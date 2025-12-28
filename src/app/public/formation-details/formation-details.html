@@ -1,0 +1,182 @@
+<div class="container py-5">
+
+  <!-- Formation trouvée -->
+  <div *ngIf="formation" class="formation-detail">
+    
+    <!-- En-tête avec bouton PDF -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <h1 class="display-5 fw-bold text-primary">{{ formation.titre }}</h1>
+        <p class="lead">{{ formation.description }}</p>
+      </div>
+      <div class="col-md-4 text-end">
+        <button class="btn btn-primary btn-lg" (click)="telechargerProgramme()">
+          📥 Programme PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Image de la formation -->
+    <div class="row mb-4" *ngIf="formation.image">
+      <div class="col-12">
+        <div class="text-center">
+          <img [src]="formation.image" 
+               class="img-fluid rounded shadow"
+               style="max-height: 300px;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Informations -->
+    <div class="row mb-4">
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">📊 Informations</h5>
+            <p><strong>Durée :</strong> {{ formation.duree }} heures</p>
+            <p>
+              <strong>Niveau :</strong>
+              <span class="badge ms-2" [ngClass]="{
+                'bg-success': formation.niveau === 'debutant',
+                'bg-warning': formation.niveau === 'intermediaire',
+                'bg-danger': formation.niveau === 'avance'
+              }">
+                {{ formation.niveau }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">🔖 Tags</h5>
+            <div class="d-flex flex-wrap gap-1">
+              <span *ngFor="let tag of formation.tags" 
+                    class="badge bg-light text-dark">
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sessions -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">📅 Sessions disponibles</h5>
+          </div>
+          <div class="card-body">
+            <!-- Pas de sessions -->
+            <div *ngIf="formation.sessions.length === 0" class="text-center py-4">
+              <p class="text-muted">Aucune session disponible pour le moment.</p>
+            </div>
+
+            <!-- Liste des sessions -->
+            <div *ngFor="let session of formation.sessions" 
+                 class="session-item mb-3 p-3 border rounded">
+              
+              <div class="row align-items-center">
+                <!-- Informations -->
+                <div class="col-md-8">
+                  <h6 class="mb-2">{{ session.description }}</h6>
+                  
+                  <p class="mb-1">
+                    <strong>Dates :</strong> 
+                    Du {{ session.dateDebut | date:'dd/MM/yyyy' }} 
+                    au {{ session.dateFin | date:'dd/MM/yyyy' }}
+                  </p>
+                  
+                  <p class="mb-1">
+                    <strong>Formateur :</strong>
+                    <span *ngFor="let formateur of session.formateurs">
+                      {{ formateur.prenom }} {{ formateur.nom }}
+                    </span>
+                  </p>
+                  
+                  <p class="mb-0">
+                    <strong>Inscrits :</strong>
+                    {{ session.candidats.length }} / {{ MAX_PLACES }} places
+                    <span *ngIf="session.candidats.length >= MAX_PLACES" class="text-danger ms-2">
+                      (COMPLET)
+                    </span>
+                  </p>
+                </div>
+
+                <!-- Bouton -->
+                <div class="col-md-4 text-end">
+                  <button 
+                    class="btn btn-success btn-lg"
+                    (click)="openInscription(session)"
+                    [disabled]="isSessionComplete(session)"
+                  >
+                    {{ isSessionComplete(session) ? 'COMPLET' : "S'INSCRIRE" }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal d'inscription -->
+<div *ngIf="showInscriptionModal" class="modal-backdrop fade show"></div>
+<div *ngIf="showInscriptionModal" class="modal fade show d-block">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">📝 Formulaire d'inscription</h5>
+        <button type="button" class="btn-close btn-close-white" 
+                (click)="closeInscription()"></button>
+      </div>
+      
+      <div class="modal-body">
+        <p><strong>Session :</strong> {{ selectedSession?.description }}</p>
+        <p><strong>Dates :</strong> {{ selectedSession?.dateDebut | date:'dd/MM/yyyy' }} - {{ selectedSession?.dateFin | date:'dd/MM/yyyy' }}</p>
+        
+        <hr>
+        
+        <div class="mb-3">
+          <label class="form-label">Nom *</label>
+          <input type="text" class="form-control" 
+                 [(ngModel)]="candidatNom" 
+                 placeholder="Votre nom">
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Prénom *</label>
+          <input type="text" class="form-control" 
+                 [(ngModel)]="candidatPrenom" 
+                 placeholder="Votre prénom">
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Email *</label>
+          <input type="email" class="form-control" 
+                 [(ngModel)]="candidatEmail" 
+                 placeholder="exemple@email.com">
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" 
+                (click)="closeInscription()">
+          Annuler
+        </button>
+        <button type="button" class="btn btn-primary" 
+                (click)="inscrire()"
+                [disabled]="!candidatNom || !candidatPrenom || !candidatEmail || isSessionComplete(selectedSession)">
+          Confirmer l'inscription
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

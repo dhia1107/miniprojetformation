@@ -1,0 +1,327 @@
+/* 🌟 STYLES GÉNÉRAUX */
+.container {
+  max-width: 1200px;
+}
+
+.formation-detail {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem !important;
+  }
+  
+  h1.display-5 {
+    font-size: 2rem !important;
+  }
+  
+  .row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+  
+  .text-end {
+    text-align: center !important;
+    margin-top: 1rem;
+  }
+}
+
+/* 🎨 CARTES */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+  border-radius: 12px 12px 0 0 !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.card-title {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 📅 SESSIONS */
+.session-item {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 1px solid #e9ecef !important;
+  border-left: 4px solid #0d6efd !important;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.session-item:hover {
+  background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+  border-color: #dee2e6 !important;
+  transform: translateX(5px);
+}
+
+.session-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.session-item:hover::before {
+  transform: translateX(100%);
+}
+
+/* 🏷️ BADGES */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.bg-light {
+  background-color: #f1f3f5 !important;
+  color: #495057 !important;
+  border: 1px solid #dee2e6;
+}
+
+/* 📷 IMAGE */
+img.img-fluid {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+img.img-fluid:hover {
+  transform: scale(1.02);
+}
+
+/* 🔘 BOUTONS */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0b5ed7 0%, #0a58ca 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(13, 110, 253, 0.35);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #198754 0%, #157347 100%);
+  box-shadow: 0 4px 12px rgba(25, 135, 84, 0.25);
+}
+
+.btn-success:hover:not(:disabled) {
+  background: linear-gradient(135deg, #157347 0%, #146c43 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(25, 135, 84, 0.35);
+}
+
+.btn-success:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #6c757d 0%, #5c636a 100%);
+}
+
+/* 🪟 MODAL */
+.modal-backdrop {
+  opacity: 0.5 !important;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  z-index: 1055;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+  padding: 1.5rem;
+}
+
+.modal-title {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+/* 📝 FORMULAIRES */
+.form-control {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+/* ⚡ ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* 🔄 SPINNER */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.25em;
+}
+
+/* 📊 INFOS */
+p strong {
+  color: #2c3e50;
+  min-width: 80px;
+  display: inline-block;
+}
+
+p {
+  color: #495057;
+  line-height: 1.6;
+}
+
+.lead {
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+/* 📱 RESPONSIVE SESSIONS */
+@media (max-width: 768px) {
+  .session-item .row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .session-item .col-md-4 {
+    margin-top: 1rem;
+  }
+  
+  .session-item h6 {
+    font-size: 1rem;
+  }
+}
+
+/* 🎨 COULEURS DE NIVEAU */
+.bg-success {
+  background: linear-gradient(135deg, #198754 0%, #157347 100%) !important;
+}
+
+.bg-warning {
+  background: linear-gradient(135deg, #ffc107 0%, #ffca2c 100%) !important;
+  color: #000 !important;
+}
+
+.bg-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%) !important;
+}
+
+/* ✨ EFFETS SPÉCIAUX */
+.text-muted {
+  color: #6c757d !important;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+  font-weight: 600;
+}
+
+/* 📍 SEPARATEUR */
+hr {
+  opacity: 0.2;
+  margin: 1.5rem 0;
+}
+
+/* 📦 GRID */
+.row.g-4 {
+  --bs-gutter-y: 1.5rem;
+}
+
+.row.g-4 > * {
+  padding-top: var(--bs-gutter-y);
+}
+
+/* 🖼️ CONTAINER IMAGE */
+.text-center {
+  position: relative;
+}
+
+.text-center::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #0d6efd, #198754);
+  border-radius: 3px;
+}

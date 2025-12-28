@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Layout: make root app a column so footer can stick to bottom */
+html, body, app-root, app-formation-all {
+  height: 100%;
+  margin: 0;
+}
+
+/* Ensure the app components use a column flex layout and fill viewport */
+app-root, app-formation-all {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Let the main content expand to push footer to the bottom when little content */
+app-formation-all .main-content {
+  flex: 1 0 auto;
+}
+
+/* Make the footer host take remaining space and pin to bottom */
+app-footer {
+  margin-top: auto; /* pushes footer to bottom in the flex column */
+  width: 100%;
+}
+
+/* Optional: ensure inner <footer> fills width and no extra margin interferes */
+app-footer footer {
+  margin-top: 0;
+  width: 100%;
+}
+

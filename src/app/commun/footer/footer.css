@@ -1,0 +1,65 @@
+/* 🎯 FOOTER GLASSMORPHISM */
+footer {
+  background: rgba(13, 110, 253, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 0; /* override Bootstrap .mt-5 */
+  width: 100%;
+}
+
+
+/* Effet de lumière */
+footer .container {
+  position: relative;
+  padding: 1.5rem;
+}
+
+/* Texte avec effet néon */
+footer p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+               0 0 10px rgba(255, 255, 255, 0.3);
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5),
+                 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.5),
+                 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Bulles flottantes */
+footer::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 3px, transparent 3px);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  animation: floatBubbles 20s linear infinite;
+}
+
+@keyframes floatBubbles {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, 150px 150px, 200px 200px;
+  }
+}
