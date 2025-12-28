@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./admin-home.css'],
 })
 export class AdminHome {
+  isBrowser = typeof window !== 'undefined';
+  globeComponent: Type<unknown> | null = null;
   blocs = [
     {
       titre: 'Gestion des candidats',
@@ -26,4 +28,12 @@ export class AdminHome {
       description: 'Programmer des sessions et assigner des formateurs sur chaque formation.',
     },
   ];
+
+  constructor() {
+    if (this.isBrowser) {
+      import('@omnedia/ngx-three-globe').then((m) => {
+        this.globeComponent = (m as { NgxThreeGlobeComponent?: Type<unknown> }).NgxThreeGlobeComponent ?? null;
+      });
+    }
+  }
 }

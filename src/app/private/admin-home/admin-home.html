@@ -10,3 +10,9 @@
   </div>
   }
 </div>
+
+@if (isBrowser && globeComponent) {
+  <div class="mt-4 d-flex justify-content-center">
+    <ng-container *ngComponentOutlet="globeComponent"></ng-container>
+  </div>
+}
