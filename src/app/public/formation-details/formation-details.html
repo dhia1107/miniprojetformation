@@ -1,19 +1,17 @@
 <div class="container py-5">
 
-  <!-- Formation trouvAce -->
+  <!-- Formation trouvée -->
   @if (formation) {
   <div class="formation-detail">
     
-    <!-- En-tA¦te avec bouton PDF -->
+    <!-- En-tête avec bouton PDF -->
     <div class="row mb-4">
       <div class="col-md-8">
         <h1 class="display-5 fw-bold text-primary">{{ formation.titre }}</h1>
         <p class="lead">{{ formation.description }}</p>
       </div>
       <div class="col-md-4 text-end">
-        <a href="{{ formation.pdf }}" 
-           class="btn btn-primary btn-lg mt-3"
-           download>📥 Programme PDF</a>
+        <a class="btn btn-primary btn-lg" href="{{formation.pdf}}" download>📄 Programme PDF</a>
       </div>
     </div>
 
@@ -35,8 +33,8 @@
       <div class="col">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">📊 Informations</h5>
-            <p><strong>DurAce :</strong> {{ formation.duree }} heures</p>
+            <h5 class="card-title">ℹ️ Informations</h5>
+            <p><strong>Durée :</strong> {{ formation.duree }} heures</p>
             <p>
               <strong>Niveau :</strong>
               <span class="badge ms-2" [ngClass]="{
@@ -55,7 +53,7 @@
       <div class="col">
         <div class="card h-100">
           <div class="card-body">
-            <h5 class="card-title">🔖 Tags</h5>
+            <h5 class="card-title">🏷️ Tags</h5>
             <div class="d-flex flex-wrap gap-1">
               @for (tag of formation.tags; track tag) {
               <span
@@ -139,7 +137,7 @@
 </div>
 
 <!-- Modal d'inscription -->
-@if (showInscriptionModal) {
+@if (showInscriptionModal && selectedSession) {
 <div class="modal-backdrop fade show"></div>
 <div class="modal fade show d-block">
   <div class="modal-dialog">
@@ -151,30 +149,51 @@
       </div>
       
       <div class="modal-body">
-        <p><strong>Session :</strong> {{ selectedSession?.description }}</p>
-        <p><strong>Dates :</strong> {{ selectedSession?.dateDebut | date:'dd/MM/yyyy' }} - {{ selectedSession?.dateFin | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Session :</strong> {{ selectedSession.description }}</p>
+        <p><strong>Dates :</strong> {{ selectedSession.dateDebut | date:'dd/MM/yyyy' }} - {{ selectedSession.dateFin | date:'dd/MM/yyyy' }}</p>
         
         <hr>
         
         <div class="mb-3">
           <label class="form-label">Nom *</label>
           <input type="text" class="form-control" 
-                 [(ngModel)]="candidatNom" 
+                 [(ngModel)]="candidatForm.nom" 
                  placeholder="Votre nom">
         </div>
         
         <div class="mb-3">
-          <label class="form-label">Prenom *</label>
+          <label class="form-label">Prénom *</label>
           <input type="text" class="form-control" 
-                 [(ngModel)]="candidatPrenom" 
-                 placeholder="Votre prAcnom">
+                 [(ngModel)]="candidatForm.prenom" 
+                 placeholder="Votre prénom">
         </div>
         
         <div class="mb-3">
           <label class="form-label">Email *</label>
           <input type="email" class="form-control" 
-                 [(ngModel)]="candidatEmail" 
+                 [(ngModel)]="candidatForm.email" 
                  placeholder="exemple@email.com">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">CIN</label>
+          <input type="number" class="form-control" 
+                 [(ngModel)]="candidatForm.cin" 
+                 placeholder="Votre CIN">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Téléphone</label>
+          <input type="number" class="form-control" 
+                 [(ngModel)]="candidatForm.telephone" 
+                 placeholder="Votre téléphone">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Mot de passe</label>
+          <input type="text" class="form-control" 
+                 [(ngModel)]="candidatForm.mdp" 
+                 placeholder="Choisissez un mot de passe">
         </div>
       </div>
       
@@ -185,7 +204,7 @@
         </button>
         <button type="button" class="btn btn-primary" 
                 (click)="inscrire()"
-                [disabled]="!candidatNom || !candidatPrenom || !candidatEmail || isSessionComplete(selectedSession)">
+                [disabled]="!candidatForm.nom || !candidatForm.prenom || !candidatForm.email || isSessionComplete(selectedSession)">
           Confirmer l'inscription
         </button>
       </div>
